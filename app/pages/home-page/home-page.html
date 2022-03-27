@@ -1,0 +1,16 @@
+<div class="c-dashboard">
+  <div class="c-filters__container">
+    <vue-component name="FiltersComponent"  v-on-search="homePageVm.handleSearch" v-on-clear="homePageVm.handleClear"></vue-component>
+  </div>
+
+  <employees-list search-item="homePageVm.search" employees-list="homePageVm.employees"></employees-list>
+
+  <div class="c-dashboard__footer" ng-if="homePageVm.totalPages != homePageVm.currentPage">
+    <button ng-disabled="homePageVm.clicked" class="c-button" ng-click="homePageVm.loader()">
+      <div class="c-spinner">
+          <span ng-show="homePageVm.clicked" class="c-smooth spinner" > </span>
+          <label class="c-label" > Load More</label>
+      </div>
+    </button>
+  </div>
+</div>
